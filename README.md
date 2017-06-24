@@ -1,7 +1,7 @@
 # kernel-ml
 
 [![Build Status](https://travis-ci.org/m31271n/ansible-role-kernel-ml.svg?branch=master)](https://travis-ci.org/m31271n/ansible-role-kernel-ml)
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-m31271n.kernel-ml-blue.svg)](https://galaxy.ansible.com/m31271n/kernel-ml)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-m31271n.kernel--ml-blue.svg)](https://galaxy.ansible.com/m31271n/kernel-ml)
 
 Ansible role that setups kernel-ml for EL.
 
