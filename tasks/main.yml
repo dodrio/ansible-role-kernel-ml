@@ -1,0 +1,27 @@
+---
+- name: enable ELRepo
+  copy:
+    src: elrepo.repo
+    dest: /etc/yum.repos.d/elrepo.repo
+    owner: root
+    group: root
+    mode: 0644
+
+- name: ensure kernel-ml is installed
+  yum:
+    name: kernel-ml-{{ kernel_ml_version }}
+    state: present
+  notify: reconfigure grub2
+
+- name: configure grub2 to boot first entry
+  lineinfile:
+    dest: /etc/default/grub
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+    create: yes
+    regexp: 'GRUB_DEFAULT='
+    line: 'GRUB_DEFAULT=0'
+    state: present
+  notify: reconfigure grub2
