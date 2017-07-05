@@ -21,7 +21,12 @@
     mode: '0644'
     backup: yes
     create: yes
-    regexp: 'GRUB_DEFAULT='
-    line: 'GRUB_DEFAULT=0'
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
     state: present
+  with_items:
+    - regexp: 'GRUB_DEFAULT='
+      line: 'GRUB_DEFAULT=0'
+    - regexp: 'GRUB_TIMEOUT='
+      line: 'GRUB_TIMEOUT=25'
   notify: reconfigure grub2
