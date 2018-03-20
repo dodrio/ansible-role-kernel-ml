@@ -28,5 +28,10 @@
     - regexp: 'GRUB_DEFAULT='
       line: 'GRUB_DEFAULT=0'
     - regexp: 'GRUB_TIMEOUT='
-      line: 'GRUB_TIMEOUT=25'
+      line: 'GRUB_TIMEOUT=30'
   notify: reconfigure grub2
+
+- name: clean previous stored boot entry by deleting grubenv
+  file:
+    path: /boot/grub2/grubenv
+    state: absent
