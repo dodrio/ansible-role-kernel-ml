@@ -9,7 +9,7 @@
 
 - name: ensure kernel-ml is installed
   yum:
-    name: kernel-ml-{{ kernel_ml_version }}
+    name: kernel-ml{{ kernel_ml_version and ('-' + kernel_ml_version) }}
     state: present
   notify: reconfigure grub2
 
